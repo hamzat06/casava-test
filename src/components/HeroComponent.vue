@@ -2,13 +2,9 @@
   <div id="hero">
     <div class="container hero-1" v-if="variant === 'type2'">
       <img src="/back.png" class="back" alt="" @click="$emit('switch-View1')" />
-      <h1 class="mb-5" v-if="searchFor.length !== 0">
+      <h1 class="mb-5">
         Albums <br />
-        matching "{{ searchFor }}"
-      </h1>
-      <h1 class="mb-5" v-else>
-        Search <br />
-        for something...
+        matching "{{ searchFor || "_" }}"
       </h1>
       <SearchInput @searchInput="searchForKeys" />
     </div>
@@ -72,6 +68,7 @@ export default defineComponent({
   line-height: 4.5rem;
   margin-bottom: 2rem;
   margin-top: 2rem;
+  text-align: center;
 }
 
 #hero h5 {
@@ -104,6 +101,10 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+
+  #hero .hero-1.container {
+    display: block
   }
 
   #hero .hero-img {
