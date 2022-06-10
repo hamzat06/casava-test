@@ -11,7 +11,7 @@
         Albums <br />
         matching "{{ searchFor }}"
       </h1>
-      <h1 class="mb-5">
+      <h1 class="mb-5" v-else>
         Search <br />
         for something...
       </h1>
@@ -21,7 +21,10 @@
       <div class="mb-5">
         <h1>Don’t stop the groove.</h1>
         <h5>Find new music you love with a search</h5>
-        <SearchInput @searchInput="searchForKeys" @switchView="switchView" />
+        <SearchInput
+          @searchInput="searchForKeys"
+          @switchView="$emit('switch-View')"
+        />
       </div>
       <div>
         <div class="hero-img-container">
@@ -50,10 +53,6 @@ export default defineComponent({
       // this.$emit("searchedInput", data);
       this.searchFor = data;
     },
-
-    switchView() {
-      console.log("working")
-    }
   },
   emits: ["switch-View", "searchedInput", "switch-View1"],
 });

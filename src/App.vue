@@ -50,7 +50,7 @@ const searching = ref("");
 // };
 
 function switchView() {
-  currentView.value = "view1";
+  currentView.value = "view2";
 }
 
 function switchView1() {
@@ -104,7 +104,7 @@ function searchedKey(data: string) {
       />
 
       <section id="popular">
-        <div class="container">
+        <div class="container pt-3">
           <div class="grid cols-3 gap-1">
             <AlbumCard title="" image="" artiste="" />
             <AlbumCard title="" image="" artiste="" />
@@ -129,6 +129,7 @@ function searchedKey(data: string) {
 #popular h3 {
   font-size: 2rem;
   font-weight: 700;
+  margin-bottom: 3rem;
 }
 
 @media only screen and (max-width: 678px) {

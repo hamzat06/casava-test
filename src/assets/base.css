@@ -176,3 +176,7 @@ body {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
+
+.pt-3 {
+  padding-top: 3rem;
+}
