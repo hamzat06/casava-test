@@ -19,7 +19,7 @@ export default defineComponent({
     searchValue: "",
   }),
   methods: {
-    searchFor(e) {
+    searchFor() {
       this.$emit("searchInput", this.searchValue);
       this.$emit("switchView");
     },
