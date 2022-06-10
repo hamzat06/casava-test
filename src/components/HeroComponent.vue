@@ -1,29 +1,30 @@
-<script setup lang="ts">
-import SearchInput from "./SearchInput.vue";
-
-defineProps<{
-  type: string;
-}>();
-</script>
-
 <template>
   <div id="hero">
-    <div class="container" v-if="type === 'type2'">
-      <img src="../assets/back.png" class="back" alt="">
-      <h1>
+    <div class="container hero-1" v-if="variant === 'type2'">
+      <img
+        src="../assets/back.png"
+        class="back"
+        alt=""
+        @click="$emit('switch-View1')"
+      />
+      <h1 class="mb-5" v-if="searchFor.length !== 0">
         Albums <br />
-        matching "boys"
+        matching "{{ searchFor }}"
       </h1>
-      <SearchInput />
+      <h1 class="mb-5">
+        Search <br />
+        for something...
+      </h1>
+      <SearchInput @searchInput="searchForKeys" />
     </div>
     <div class="container grid cols-2 gap" v-else>
-      <div>
+      <div class="mb-5">
         <h1>Don’t stop the groove.</h1>
         <h5>Find new music you love with a search</h5>
-        <SearchInput />
+        <SearchInput @searchInput="searchForKeys" @switchView="switchView" />
       </div>
       <div>
-        <div>
+        <div class="hero-img-container">
           <img alt="" src="../assets/hero.jpg" class="hero-img" />
         </div>
       </div>
@@ -31,7 +32,34 @@ defineProps<{
   </div>
 </template>
 
-<style>
+<script lang="ts">
+import { defineComponent } from "vue";
+import SearchInput from "./SearchInput.vue";
+
+export default defineComponent({
+  name: "HeroComponent",
+  data: () => ({
+    searchFor: "",
+  }),
+  components: { SearchInput },
+  props: {
+    variant: String,
+  },
+  methods: {
+    searchForKeys(data: string) {
+      // this.$emit("searchedInput", data);
+      this.searchFor = data;
+    },
+
+    switchView() {
+      console.log("working")
+    }
+  },
+  emits: ["switch-View", "searchedInput", "switch-View1"],
+});
+</script>
+
+<style scoped>
 @import "../assets/base.css";
 #hero .container {
   padding: 0 2rem;
@@ -40,6 +68,7 @@ defineProps<{
 
 #hero .hero-img {
   width: 100%;
+  margin: 0 auto;
 }
 
 #hero h1 {
@@ -63,5 +92,50 @@ defineProps<{
 .back {
   width: 20px;
   margin-top: 2rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  #hero h1 {
+    font-size: 3.5rem;
+    line-height: 3rem;
+  }
+
+  .hero-img-container {
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #hero .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #hero .hero-img {
+    max-width: 550px;
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
+
+  #hero h1 {
+    text-align: center;
+  }
+
+  #hero h5 {
+    text-align: center;
+    line-height: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #hero h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  #hero h5 {
+    text-align: center;
+  }
 }
 </style>
