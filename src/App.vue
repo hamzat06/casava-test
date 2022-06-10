@@ -70,7 +70,7 @@ function searchedKey(data: string) {
   <div id="app">
     <header>
       <div class="container">
-        <img alt="" src="./assets/groove.png" />
+        <img alt="" src="/groove.png" />
       </div>
     </header>
 
