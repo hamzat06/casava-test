@@ -1,6 +1,6 @@
 <template>
   <div class="search-form-container">
-    <img alt="" src="../assets/search.png" class="search" />
+    <img alt="" src="/search.png" class="search" />
     <input
       type="search"
       class="search-input"
@@ -31,6 +31,7 @@ export default defineComponent({
 <style>
 @import "../assets/base.css";
 .search-form-container {
+
   display: flex;
   align-items: center;
   margin-left: auto;

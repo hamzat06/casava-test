@@ -24,3 +24,4 @@ git commit -m 'deploy'
 git push -f git@github.com:hamzat06/casava-test.git main:gh-pages
 
 cd -
+

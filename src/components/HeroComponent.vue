@@ -1,12 +1,7 @@
 <template>
   <div id="hero">
     <div class="container hero-1" v-if="variant === 'type2'">
-      <img
-        src="../assets/back.png"
-        class="back"
-        alt=""
-        @click="$emit('switch-View1')"
-      />
+      <img src="/back.png" class="back" alt="" @click="$emit('switch-View1')" />
       <h1 class="mb-5" v-if="searchFor.length !== 0">
         Albums <br />
         matching "{{ searchFor }}"
@@ -28,7 +23,7 @@
       </div>
       <div>
         <div class="hero-img-container">
-          <img alt="" src="../assets/hero.jpg" class="hero-img" />
+          <img alt="" src="/hero.jpg" class="hero-img" />
         </div>
       </div>
     </div>

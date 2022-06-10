@@ -18,10 +18,10 @@ const attachImage = (_img: string) => {
         <p>Beyonce</p>
       </div>
       <div>
-        <img alt="" src="../assets/line.png" class="line" />
+        <img alt="" src="/line.png" class="line" />
       </div>
       <div class="play-container">
-        <img alt="" src="../assets/play.png" class="play" />
+        <img alt="" src="/play.png" class="play" />
       </div>
     </div>
   </div>
